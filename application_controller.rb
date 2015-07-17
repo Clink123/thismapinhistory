@@ -9,7 +9,7 @@ class MyApp < Sinatra::Base
   end
 
   post '/map' do
-    @state = params[:state]
+    @state = params[:state].downcase
     @date = params[:date]
     init = Fact.new(@state, @date)
     @fact = init.get_fact
